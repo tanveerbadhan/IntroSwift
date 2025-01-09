@@ -65,6 +65,78 @@ print("Value of num1 in range2 is: \(num1)")
 print("range3.contains(4): \(range3.contains(4))")
 print("range3.contains(5): \(range3.contains(5))")
 
+
+enum Direction: CaseIterable {
+    case north
+    case south
+    case east
+    case west
+}
+
+var directionToHead = Direction.north
+
+directionToHead = .east
+
+switch directionToHead {
+    case .north: print("You are facing north")
+    case .east: print("You are facing east")
+    case .south: print("You are facing south")
+    case .west: print("You are facing west")
+}
+
+var numberOfDirections = Direction.allCases.count;
+
+for direction in Direction.allCases {
+    print ("\(direction)")
+}
+
+enum Day: Int, CaseIterable {
+    // any starting value
+    case monday, tuesday, wednesday, thursday, friday, saturday, sunday
+}
+
+for day in Day.allCases {
+    print ("\(day.rawValue)")
+}
+
+// also a way to access rawValue
+
+print ("\(Day(rawValue: 4)!)")
     
 
+var airportList: [String: String] = ["YYZ": "Toronto", "LAX": "Los Angeles"];
 
+airportList["MTL"] = "Montreal";
+
+print(airportList)
+
+print ("\(airportList["YYZ"]!)")
+
+airportList.removeValue(forKey: "YYZ")
+print(airportList)
+
+for (key, value) in airportList {
+    print ("\(key): \(value)")
+}
+
+for airport in airportList {
+    print(airport.value)
+}
+
+// We have to typecast it to an array of string in order to use it
+var airportNames = [String](airportList.values);
+
+
+//Functions
+
+func greet(person: String) {
+    print("Hello \(person)!")
+}
+greet(person: "Tanveer")
+
+func greet2(person: String) -> String {
+    return "Hello \(person)"
+}
+
+var greet2Val = greet2(person: "Tanveer Singh");
+print(greet2Val)
